@@ -1,0 +1,3 @@
+shared.accuracy = "Perfect"; -- Perfect, Great, Okay, Random
+
+loadstring(game:HttpGet("https://raw.githubusercontent.com/OvenScripts/Scripts/main/RoBeats/Autoplayer.lua"))();
