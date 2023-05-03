@@ -1,6 +1,6 @@
 -- this is the lua version of the external autoplayer made by my friend and i (https://github.com/ViperTools/RoBeats-External-Autoplayer)
 
-local keys = shared.keys or {A,S,D,F} -- MAKE THIS YOUR ROBEATS KEYBINDS FROM LEFT TO RIGHT, OR SET IN SHARED.KEYS
+local keys = shared.keys or {} -- MAKE THIS YOUR ROBEATS KEYBINDS FROM LEFT TO RIGHT, OR SET IN SHARED.KEYS
 local autoGrabKeys = shared.autoGrabKeys ~= nil and shared.autoGrabKeys or true
 
 local VirtualInputManager = game:GetService("VirtualInputManager")
