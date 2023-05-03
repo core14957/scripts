@@ -1,0 +1,63 @@
+function PlayerHubFarm()
+    game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = CFrame.new(-48.1823959, 70.6168747, 700)
+    wait(.1)
+    local TweenService = game:GetService("TweenService")
+    local destination = Vector3.new(-60.5737877, 53.9498825, 8421.35059)
+    local duration = 20 -- DONT CHANGE IT UNLESS YOU KNOW WHAT YOURE DOING
+    local humanoid = game.Players.LocalPlayer.Character:WaitForChild("Humanoid")
+    local humanoidRootPart = game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart")
+    humanoid:ChangeState(Enum.HumanoidStateType.Physics)
+    humanoid.WalkSpeed = 0
+    local tweenInfo = TweenInfo.new(duration, Enum.EasingStyle.Linear)
+    local tween = TweenService:Create(humanoidRootPart, tweenInfo, {CFrame = CFrame.new(destination)})
+    tween:Play()
+     wait(6.2)
+             if game:GetService("Players").LocalPlayer.Character:FindFirstChild("HumanoidRootPart") or game:GetService("Players").LocalPlayer.Character:FindFirstChild("Humanoid") then
+        firetouchinterest(game:GetService("Players").LocalPlayer.Character.HumanoidRootPart,workspace.BoatStages.NormalStages.TheEnd.GoldenChest.Trigger,0)
+        game:GetService("Players").LocalPlayer.Character:FindFirstChild("HumanoidRootPart").CFrame = workspace.BoatStages.NormalStages.TheEnd.GoldenChest.Trigger.CFrame
+        wait(.87)
+        firetouchinterest(game:GetService("Players").LocalPlayer.Character.HumanoidRootPart,workspace.BoatStages.NormalStages.TheEnd.GoldenChest.Trigger,1)
+        firetouchinterest(game:GetService("Players").LocalPlayer.Character.HumanoidRootPart,workspace.BoatStages.NormalStages.TheEnd.GoldenChest.Trigger,0)
+        game:GetService("Players").LocalPlayer.Character:FindFirstChild("HumanoidRootPart").CFrame = workspace.BoatStages.NormalStages.TheEnd.GoldenChest.Trigger.CFrame
+        firetouchinterest(game:GetService("Players").LocalPlayer.Character.HumanoidRootPart,workspace.BoatStages.NormalStages.TheEnd.GoldenChest.Trigger,0)
+        task.wait(.69)
+        firetouchinterest(game:GetService("Players").LocalPlayer.Character.HumanoidRootPart,workspace.BoatStages.NormalStages.TheEnd.GoldenChest.Trigger,1)
+        game:GetService("Players").LocalPlayer.Character:FindFirstChild("HumanoidRootPart").CFrame = workspace.BoatStages.NormalStages.TheEnd.GoldenChest.Trigger.CFrame
+       task.wait(.15)
+       firetouchinterest(game:GetService("Players").LocalPlayer.Character.HumanoidRootPart,workspace.BoatStages.NormalStages.TheEnd.GoldenChest.Trigger,0)
+       task.wait(.15)
+    firetouchinterest(game:GetService("Players").LocalPlayer.Character.HumanoidRootPart,workspace.BoatStages.NormalStages.TheEnd.GoldenChest.Trigger,1)
+       game:GetService("Players").LocalPlayer.Character:FindFirstChild("HumanoidRootPart").CFrame = workspace.BoatStages.NormalStages.TheEnd.GoldenChest.Trigger.CFrame
+        wait(9)
+        if game:GetService("Players").LocalPlayer.Character:FindFirstChild("HumanoidRootPart") or game:GetService("Players").LocalPlayer.Character:FindFirstChild("Humanoid") then
+        game.Players.LocalPlayer.Character.Humanoid:Destroy()
+        game.Workspace.CurrentCamera.CameraSubject = game.Players.LocalPlayer.Character
+    end
+     end
+     end
+    getgenv().PlayerHubFarms = true
+    game:GetService("RunService").Stepped:connect(
+        function()
+            if getgenv().PlayerHubFarms then
+                game.Players.LocalPlayer.Character:WaitForChild("Humanoid"):ChangeState(11)
+            end
+        end)
+    if getgenv().PlayerHubFarms then
+        PlayerHubFarm()
+    end
+    if not getgenv().PlayerHubFarms then
+        if game:GetService("Players").LocalPlayer.Character:FindFirstChild("HumanoidRootPart") and game:GetService("Players").LocalPlayer.Character then
+        game.Players.LocalPlayer.Character.Humanoid:Destroy()
+            game.Workspace.CurrentCamera.CameraSubject = game.Players.LocalPlayer.Character
+        end
+    end
+    game.Players.LocalPlayer.CharacterAdded:Connect(
+        function()
+            repeat
+                wait()
+            until game.Players.LocalPlayer.Character
+            wait(2.12)
+            if getgenv().PlayerHubFarms then
+                PlayerHubFarm()
+            end
+        end)
